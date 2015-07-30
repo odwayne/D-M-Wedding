@@ -1,0 +1,18 @@
+{
+  "name": "brambles",
+  "root": "./",
+  "clean_urls": true,
+  "error_page": "error.html",
+  "forms": {
+    "comments": {
+      "to": "mslinder2007@gmail.com",
+      "from": "no-reply@paradise-wedding.com",
+      "replyTo": "{{name}} <{{email}}>",
+      "subject": "Website Comment from {{name}}",
+      "html": "<h3>You have received a new comment</h3><p>Here are the details:</p><p><b>Name:</b> {{name}}</br><b>Email:</b> {{email}}</br></p><p><b>Comment:</b></br>{{comment}}</p>",
+      "text": "You have received a new comment.\nHere are the details:\nName: {{name}}\nEmail: {{email}}\n\nComment:\n{{Comment}}",
+      "success": "/message-sent",
+      "failure": "/message-sent"
+    }
+  }
+}
