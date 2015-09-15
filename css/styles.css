@@ -1170,20 +1170,3 @@ color: #FED400;
     width: 20%;
     height: 20%;
 }
-
-.photos {
-	height: 150px;
-	width: 150px;
-}
-
-a {
-    color: orange;
-}
-a:hover {
-    color: lightblue;
-    text-decoration: none;
-}
-.modal {
-	overflow: auto;
-	color: #333;
-}

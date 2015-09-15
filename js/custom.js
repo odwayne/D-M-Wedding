@@ -39,7 +39,7 @@ var customScripts = {
 
     onePageNav: function () {
 
-        $('#mainNav').onePageNav({
+        $('.cbp-spmenu').onePageNav({
             currentClass: 'active',
             changeHash: false,
             scrollSpeed: 950,
@@ -97,18 +97,6 @@ var customScripts = {
     init: function () {
         customScripts.onePageNav();
         customScripts.waySlide();
-        var linksContainer = $('#links'),
-            baseUrl;
-        // Add the demo images as links with thumbnails to the page:
-        $.each([{name: "dandm"}, {name: "dr"}], function (inex, photo) {
-            baseUrl = 'images/' + photo.name;
-            $('<a/>')
-                .append($('<img>').prop('src', baseUrl + "-thumb.jpg").prop('class', "photos img-responsive img-thumbnail"))
-                .prop('href', baseUrl + ".jpg")
-                .prop('title', photo.title)
-                .attr('data-gallery', '')
-                .appendTo(linksContainer);
-        });
     }
 }
 
@@ -148,7 +136,8 @@ $('document').ready(function () {
     , "images/img3.png"
   ], {duration: 3000, fade: 1250});
 
-    customScripts.init();
+  customScripts.init();
+
   $('#welcome .welcome-color, #aboutUs, #weddingInfo, #features, #clients, #portfolio, #plans, #contact .parlex-back').css('opacity','0');
   $( "#menuToggle" ).toggle(function() {
   $(this).find('i').removeClass('fa-bars').addClass('fa-remove');
@@ -156,5 +145,18 @@ $('document').ready(function () {
   }, function() {
     $('#mainNav').animate({"right":"-200px"}, "slow");
     $(this).find('i').removeClass('fa-remove').addClass('fa-bars');
+  });
+  var linksContainer = $('#links');
+  var baseUrl;
+  // Add the demo images as links with thumbnails to the page:
+
+  $.each([{name: "dandm"}, {name: "dr"}], function (inex, photo) {
+      baseUrl = 'images/' + photo.name;
+      $('<a/>')
+          .append($('<img>').prop('src', baseUrl + "-thumb.jpg").prop('class', "photos img-responsive img-thumbnail"))
+          .prop('href', baseUrl + ".jpg")
+          .prop('title', photo.title)
+          .attr('data-gallery', '')
+          .appendTo(linksContainer);
   });
 });
