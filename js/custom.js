@@ -96,13 +96,50 @@ var customScripts = {
 		},
     init: function () {
         customScripts.onePageNav();
-		customScripts.waySlide();
+        customScripts.waySlide();
+        var linksContainer = $('#links'),
+            baseUrl;
+        // Add the demo images as links with thumbnails to the page:
+        $.each([{name: "dandm.jpg"}, {name: "dr.jpg"}], function (index, photo) {
+            baseUrl = 'images/' + photo.name;
+            $('<a/>')
+                .append($('<img>').prop('src', baseUrl).prop('class', "photos img-responsive img-thumbnail"))
+                .prop('href', baseUrl)
+                .prop('title', photo.title)
+                .attr('data-gallery', '')
+                .appendTo(linksContainer);
+        });
     }
 }
 
+// Audio playback
 $('audio').on('canplay', function() {
     this.play();
 });
+
+//form validations
+function validateForm() {
+  var form = document.forms["contactUs"];
+
+  var name = form["name"].value;
+  var nameRegex = /^[\\p{L} .'-]+$/;
+  if (nameRegex.test(name) || name.trim().length<5) {
+    alert("Please enter your name (at least 5 characters)");
+    form["name"].focus();
+    return false;
+  }
+
+  var email = form["email"].value;
+  var emailRegex = /^[^ @]+@[^ @]+.[a-z]+$/
+  console.log("email");
+  if(!emailRegex.test(email)) {
+    console.log("caught it");
+    alert("Please enter a valid email address.")
+    form["email"].focus();
+  }
+  console.log("fail");
+  return false;
+};
 
 $('document').ready(function () {
    $.backstretch([

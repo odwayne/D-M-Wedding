@@ -1048,7 +1048,7 @@ footer {
 	height: 355px;
 }
 #home .heading h1{
-font-size: 43px !important;
+font-size: 50px !important;
 }
 #home .heading h2 {
 	font-size: 34px !important;
@@ -1171,8 +1171,19 @@ color: #FED400;
     height: 20%;
 }
 
-.dandm {
-	height: auto;
-	width: auto;
+.photos {
+	height: 200px;
+	width: 150;
+}
 
+a {
+    color: orange;
+}
+a:hover {
+    color: lightblue;
+    text-decoration: none;
+}
+.modal {
+	overflow: auto;
+	color: #333;
 }

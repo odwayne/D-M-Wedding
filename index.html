@@ -16,18 +16,22 @@ Donate to remove backlink form the site
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <![endif]-->
 <title>Darnell & Mesha's Wedding</title>
-<meta name="description" content="">
-<meta name="author" content="Brambles        s">
+<meta name="description" content="Website for Darnell & Mesha's Wedding">
+<meta name="author" content="Brambles">
 <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 <!--[if lte IE 8]>
 		<script type="text/javascript" src="http://explorercanvas.googlecode.com/svn/trunk/excanvas.js"></script>
 	<![endif]-->
-<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+<link rel="stylesheet" href="css/bootstrap-image-gallery.min.css">
+
 <link href="css/animate.css" rel="stylesheet" media="screen">
 <link rel="stylesheet" href="css/styles.css" />
-<link href="font/css/font-awesome.min.css" rel="stylesheet">
+<link href="fonts/css/font-awesome.min.css" rel="stylesheet">
+<link href="fonts/glyphicons-halflings-regular.woff" rel="application/font-woff">
 </head>
 
 <body>
@@ -66,6 +70,39 @@ Donate to remove backlink form the site
          </div>
 </section>
 <hr>
+<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls" data-use-bootstrap-modal="false">
+    <!-- The container for the modal slides -->
+    <div class="slides"></div>
+    <!-- Controls for the borderless lightbox -->
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+    <!-- The modal dialog, which will be used to wrap the lightbox content -->
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body next"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left prev">
+                        <i class="glyphicon glyphicon-chevron-left"></i>
+                        Previous
+                    </button>
+                    <button type="button" class="btn btn-primary next">
+                        Next
+                        <i class="glyphicon glyphicon-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <section id="welcome" class="page-section welcome-color">
   <div class="container">
     <div class="row">
@@ -96,9 +133,11 @@ Donate to remove backlink form the site
   <!--/.container-->
 </section>
 <section id="aboutUs">
-  <div class="col-md-6">
-    <img class="dandm" src="images/dandm.jpg" alt="Darnell & Mesha" align="middle"/>
-  </div><br />
+
+  <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+
+  <div id="links"></div>
+
   <div class="container story">
     <div class="row">
       <!-- item -->
@@ -191,7 +230,7 @@ Donate to remove backlink form the site
         <a href="http://www.jewelresorts.com/resorts/runawaybay/" target="_blank"><img src="images/jewelBanner.png" alt=""></a>
         <p>
 
-          You can book the room and flight together as a package as well. This will require $250 <strong>nonrefundable</strong> deposit. Since the rates are different based on the number of people and flight location, we are not able to confirm what the rate would be for each person. To see what the rate would be with the package including the resort and flight, please contact Sharon Campbell at the email above before booking and submitting the $250 budget.
+          You can book the room and flight together as a package as well. This will require $250 <strong>nonrefundable</strong> deposit. Since the rates are different based on the number of people and flight location, we are not able to confirm what the rate would be for each person. To see what the rate would be with the package including the resort and flight, please contact Sharon Campbell at the email above before booking and submitting the $250 deposit.
           <br /><br />
 
           <strong>***Please note: You dont have to stay at Jewel Resort, but there will be a fee of $250 per person to enter the resort for the wedding.</strong>
@@ -235,7 +274,7 @@ Donate to remove backlink form the site
         </div>
       </div>
       <div class="row mrgn30">
-        <form method="POST" action="/__/forms/comments" id="contactfrm" role="form">
+        <form method="POST" action="/__/forms/comments" id="contactfrm" name="contactUs" role="form" onsubmit="return validateForm()">
           <div class="col-sm-12">
             <div class="control-group form-group">
               <label for="name">Name</label>
@@ -247,6 +286,7 @@ Donate to remove backlink form the site
               <input type="email" class="form-control" name="email" pattern="[^ @]+@[^ @]+.[a-z]+" id="email" placeholder="Enter email" required title="Please enter a valid email address.">
 
             </div>
+
             <div class="control-group form-group">
               <label for="comments">Comments</label>
               <textarea name="comment" class="form-control" id="comments" cols="3" rows="5" placeholder="Enter your message…" title="Please enter your message (at least 10 characters)"></textarea>
@@ -273,17 +313,19 @@ Donate to remove backlink form the site
     </div>
     <!-- / .row -->
   </div>
-  <audio autoplay loop>
+  <!-- <audio autoplay loop>
     <source src="hold_yuh.mp3" type="audio/mpeg">
       Your browser does not support the audio tag.
-  </audio>
+  </audio> -->
 
 </section>
 <a href="#top" class="topHome"><i class="fa fa-chevron-up fa-2x"></i></a>
 
 <!--[if lte IE 8]><script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><![endif]-->
 <script src="js/modernizr-latest.js" type="text/javascript"></script>
-<script src="js/jquery-1.8.2.min.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+<script src="js/bootstrap-image-gallery.min.js"></script>
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
 <script src="js/jquery.nav.js" type="text/javascript"></script>
 <script src="js/waypoints.js" type="text/javascript"></script>
