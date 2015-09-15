@@ -100,11 +100,11 @@ var customScripts = {
         var linksContainer = $('#links'),
             baseUrl;
         // Add the demo images as links with thumbnails to the page:
-        $.each([{name: "dandm.jpg"}, {name: "dr.jpg"}], function (index, photo) {
+        $.each([{name: "dandm"}, {name: "dr"}], function (inex, photo) {
             baseUrl = 'images/' + photo.name;
             $('<a/>')
-                .append($('<img>').prop('src', baseUrl).prop('class', "photos img-responsive img-thumbnail"))
-                .prop('href', baseUrl)
+                .append($('<img>').prop('src', baseUrl + "-thumb.jpg").prop('class', "photos img-responsive img-thumbnail"))
+                .prop('href', baseUrl + ".jpg")
                 .prop('title', photo.title)
                 .attr('data-gallery', '')
                 .appendTo(linksContainer);
