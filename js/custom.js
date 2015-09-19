@@ -150,7 +150,7 @@ $('document').ready(function () {
   var baseUrl;
   // Add the demo images as links with thumbnails to the page:
 
-  $.each([{name: "dandm"}, {name: "dr"}], function (inex, photo) {
+  $.each([{name: "dr"}], function (index, photo) {
       baseUrl = 'images/' + photo.name;
       $('<a/>')
           .append($('<img>').prop('src', baseUrl + "-thumb.jpg").prop('class', "photos img-responsive img-thumbnail"))
