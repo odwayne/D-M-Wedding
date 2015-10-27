@@ -46,9 +46,7 @@ var customScripts = {
             scrollThreshold: 0.2,
             filter: '',
             easing: 'swing',
-            begin: function () {
-                //I get fired when the animation is starting
-            },
+            begin: function () {},
             end: function () {
                    //I get fired when the animation is ending
 				if(!$('#main-nav ul li:first-child').hasClass('active')){
